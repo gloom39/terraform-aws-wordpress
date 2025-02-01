@@ -1,4 +1,4 @@
-# terraform-aws-wordpres
+# terraform-aws-wordpress
 
 This script will will launch an ec2 instance and a rds instance in AWS and install wordpress.
 
