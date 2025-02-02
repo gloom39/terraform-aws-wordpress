@@ -7,7 +7,7 @@ Before running terraform, create your own public and priate key file pair file a
 **Usage :**
 ```
 terraform init
-terraform apply -var 'db_username=value' -var 'db_password=value' -var 'db_name=value' -var 'wp_title=value' -var 'wp_admin_user=value' -var 'wp_admin_pass=value' -var 'wp_admin_email=value'
+terraform apply -var 'AWS_REGION=value' -var 'db_username=value' -var 'db_password=value' -var 'db_name=value' -var 'wp_title=value' -var 'wp_admin_user=value' -var 'wp_admin_pass=value' -var 'wp_admin_email=value'
 ```
 You can also run **terraform apply** with out any arguments. it will take the default values from **variables.tf** file.
 

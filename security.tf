@@ -1,7 +1,7 @@
 resource "aws_security_group" "wordpress" {
   name        = "wordpress"
   description = "Allow ssh and http inbound traffic and all outbound traffic"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = data.aws_subnets.all_subnets.ids[0]
   tags = {
     Name = "wordpress"
   }

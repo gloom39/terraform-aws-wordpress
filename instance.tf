@@ -1,7 +1,7 @@
 resource "aws_instance" "wordpress" {
-   ami = var.ami
+   ami =  data.aws_ami.ubuntu.id
    instance_type = var.instance_type
-   subnet_id = aws_subnet.main-public-1.id
+   subnet_id = data.aws_subnets.all_subnets.ids[0]
    tags = {
      Name = "wordpress"
    }

@@ -7,7 +7,7 @@ resource "aws_db_parameter_group" "mariadb-parameters" {
 resource "aws_db_subnet_group" "mariadb-subnet" {
   name = "mariadb-subnet"
   description = "RDS subnet group"
-  subnet_ids = [aws_subnet.main-public-1.id,aws_subnet.main-public-2.id,aws_subnet.main-public-3.id]
+  subnet_ids = data.aws_subnets.all_subnets.ids
 }
 
 resource "aws_db_instance" "wordpressdb" {
@@ -24,7 +24,6 @@ resource "aws_db_instance" "wordpressdb" {
   vpc_security_group_ids = [aws_security_group.allow-mariadb.id]
   storage_type = "gp2"
   backup_retention_period = 0
-  availability_zone = aws_subnet.main-public-1.availability_zone
   skip_final_snapshot = true
   tags = {
     Name = "mariadb-instance"
