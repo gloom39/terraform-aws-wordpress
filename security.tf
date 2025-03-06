@@ -1,7 +1,7 @@
 resource "aws_security_group" "wordpress" {
   name        = "wordpress"
   description = "Allow ssh and http inbound traffic and all outbound traffic"
-  vpc_id      = data.aws_subnets.all_subnets.ids[0]
+  vpc_id      = data.aws_vpc.default.id
   tags = {
     Name = "wordpress"
   }
@@ -31,7 +31,7 @@ resource "aws_security_group" "wordpress" {
 resource "aws_security_group" "allow-mariadb" {
   name = "allow-maridb"
   description = "allow-mariadb"
-  vpc_id = aws_vpc.main.id
+  vpc_id = data.aws_vpc.default.id
   ingress {
     from_port = 3306
     to_port = 3306
