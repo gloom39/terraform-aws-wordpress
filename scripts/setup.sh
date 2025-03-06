@@ -8,7 +8,7 @@ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
 chmod +x wp-cli.phar && sudo mv wp-cli.phar /usr/local/bin/wp
 mkdir wordpress && cd wordpress && wp core download
 wp core config --dbhost=${dbhost} --dbname=${dbname} --dbuser=${dbuser} --dbpass=${dbpass}
-wp core install --url=${ip} --title=${title} --admin_name=${admin_name} --admin_password=${admin_password} --admin_email=${admin_email}
+wp core install --url=${ip} --title="${title}" --admin_name=${admin_name} --admin_password=${admin_password} --admin_email=${admin_email}
 sudo rm -rf /var/www/html/*
 sudo rsync -arv /home/ubuntu/wordpress/ /var/www/html/
 sudo chown -R www-data:www-data /var/www/html
